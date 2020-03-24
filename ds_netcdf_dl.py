@@ -4,9 +4,11 @@ import netCDF4
 import os
 import matplotlib.pyplot as plt
 
-### Below I am reading in individual URL's copy and pasted from the text file, however, this could be modified to take in a text file and read the url list within
-### the text file. Since the URLs can be generated to download netcdfs at a smaller bounding box extent (from the maca website), it would eliminate the need to do the
-### "slicing" operation in the loop at the bottom.
+### Below I am reading in individual URL's from NKN Thredd Server, however, this could be modified to take in the text file produced 
+### by the MACA portal download and 
+### read the url list within the text file. Since the URLs can be generated to download netcdfs at a smaller bounding 
+### box extent (from the maca website), it would eliminate the need to do the
+### "slicing" operation in the loop at the bottom of this script.
 
 #read in urls for each climate projection min/max
 inmcm4_rcp85_rhsmin_url = 'http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_rhsmin_inmcm4_r1i1p1_rcp85_2006_2099_CONUS_daily.nc'
