@@ -9,24 +9,6 @@ import matplotlib.pyplot as plt
 ### read the url list within the text file. Since the URLs can be generated to download netcdfs at a smaller bounding 
 ### box extent (from the maca website), it would eliminate the need to do the
 ### "slicing" operation in the loop at the bottom of this script.
-Drive="C:/Users/zacha/Desktop/NewClimate/"
-filepath =Drive+ 'macav2metdata_urls.txt'
-#with open(filepath) as fp:
-#   line = fp.readline()
-#   cnt = 1
-#   while line:
-#       print("Line {}: {}".format(cnt, line.strip()))
-#       line = fp.readline()
-#       cnt += 1
-cnt=1
-with open(filepath) as fp:
-    lines = fp.readlines()
-lines=lines[1:17]
-trimmed_names = [i.split('macav2metdata_')[1] for i in lines]
-trimmed_names2 = [i.split('_daily')[0] for i in trimmed_names]
-test=lines[1].split(" ")[0]
-inmcm4_rhsmin = xr.open_dataset(lines[1])
-lines[1]
 
 #read in urls for each climate projection min/max
 inmcm4_rcp85_rhsmin_url = 'http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_rhsmin_inmcm4_r1i1p1_rcp85_2006_2099_CONUS_daily.nc'
@@ -35,7 +17,7 @@ canesm2_rcp85_rhsmin_url = 'http://thredds.northwestknowledge.net:8080/thredds/d
 canesm2_rcp85_rhsmax_url = 'http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_rhsmax_CanESM2_r1i1p1_rcp85_2006_2099_CONUS_daily.nc'
 miroc_rcp85_rhsmin_url = 'http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_rhsmin_MIROC-ESM-CHEM_r1i1p1_rcp85_2006_2099_CONUS_daily.nc'
 miroc_rcp85_rhsmax_url = 'http://thredds.northwestknowledge.net:8080/thredds/dodsC/agg_macav2metdata_rhsmax_MIROC-ESM-CHEM_r1i1p1_rcp85_2006_2099_CONUS_daily.nc'
-nmcm4_rhsmin = xr.open_dataset(inmcm4_rcp85_rhsmin_url)
+
 #make list of urls
 urls = [inmcm4_rcp85_rhsmin_url,inmcm4_rcp85_rhsmax_url,canesm2_rcp85_rhsmax_url,canesm2_rcp85_rhsmin_url, miroc_rcp85_rhsmax_url, miroc_rcp85_rhsmin_url]
 
